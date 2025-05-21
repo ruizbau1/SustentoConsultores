@@ -5,6 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sustento Consultores</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Para que las cards de servicios se vean clickeables */
+    .service {
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .service:hover {
+      background-color: #f0f0f0;
+    }
+    /* Botón más información */
+    .btn-info {
+      display: block;           /* Para centrarlo */
+      margin: 10px auto 0 auto; /* Auto horizontal para centrar */
+      padding: 8px 16px;
+      background-color: #28a745; /* Verde */
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      width: fit-content;
+      text-align: center;
+    }
+    .btn-info:hover {
+      background-color: #1e7e34;
+    }
+  </style>
 </head>
 <body>
 
@@ -28,23 +55,23 @@
       <h2>Servicios Profesionales</h2>
       <p class="description">Ofrecemos soluciones técnicas integrales para proyectos sustentables y urbanos.</p>
       <div class="services">
-        <div class="service">
+        <div class="service" data-servicio="Estudio de Impacto Ambiental">
           <h3>Impacto Ambiental</h3>
           <p>Estudios y evaluaciones ambientales para cumplimiento normativo.</p>
         </div>
-        <div class="service">
+        <div class="service" data-servicio="Planeación Urbana y Movilidad">
           <h3>Urbano y Movilidad</h3>
           <p>Planeación y diseño para desarrollo urbano y sistemas de movilidad eficientes.</p>
         </div>
-        <div class="service">
+        <div class="service" data-servicio="Topografía y Diseño Estructural">
           <h3>Topográficos y Estructurales</h3>
           <p>Levantamientos topográficos y análisis estructurales confiables.</p>
         </div>
-        <div class="service">
+        <div class="service" data-servicio="Valuación / Edafología">
           <h3>Edafología y Valuación</h3>
           <p>Estudios de suelo y valuación catastral técnica y objetiva.</p>
         </div>
-        <div class="service">
+        <div class="service" data-servicio="Fotografía y Video Aéreo">
           <h3>Fotografía Aérea</h3>
           <p>Imágenes y videos profesionales con drones para proyectos y promoción.</p>
         </div>
@@ -55,14 +82,17 @@
       <h2>Portafolio</h2>
       <div class="portfolio">
         <div class="project">
-          <img src="https://via.placeholder.com/400x250?text=Proyecto+1" alt="Proyecto 1">
-          <h3>Impacto Ambiental – Parque Solar</h3>
-          <p>Evaluación integral de impacto para planta de energía renovable.</p>
+          <!-- Cambio de Proyecto 1 a Casa 2 -->
+          <img src="https://via.placeholder.com/400x250?text=Casa+en+Venta+2" alt="Casa 2">
+          <h3>Casa en Venta – Zona Exclusiva</h3>
+          <p>Hermosa propiedad con acabados modernos y sustentables.</p>
+          <button class="btn-info" data-servicio="Casa en Venta">Más información</button>
         </div>
         <div class="project">
           <img src="https://via.placeholder.com/400x250?text=Casa+en+Venta" alt="Casa">
           <h3>Casa en Venta – Zona Residencial</h3>
           <p>Propiedad lista para habitar con diseño ecológico y moderno.</p>
+          <button class="btn-info" data-servicio="Casa en Venta">Más información</button>
         </div>
       </div>
     </section>
@@ -72,15 +102,15 @@
       <p class="description">Conoce más sobre nuestros servicios a través de videos demostrativos.</p>
       <div class="services">
         <div class="service">
-          <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="200" src="https://www.youtube.com/" title="Video 1" frameborder="0" allowfullscreen></iframe>
           <h3>Presentación de Servicios</h3>
         </div>
         <div class="service">
-          <iframe width="100%" height="200" src="https://www.youtube.com/embed/oHg5SJYRHA0" title="Video 2" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="200" src="https://www.youtube.com/" title="Video 2" frameborder="0" allowfullscreen></iframe>
           <h3>Proyectos Recientes</h3>
         </div>
         <div class="service">
-          <iframe width="100%" height="200" src="https://www.youtube.com/embed/3GwjfUFyY6M" title="Video 3" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="200" src="https://www.youtube.com/" title="Video 3" frameborder="0" allowfullscreen></iframe>
           <h3>Testimonios de Clientes</h3>
         </div>
       </div>
@@ -109,6 +139,8 @@
           <option>Topografía y Diseño Estructural</option>
           <option>Valuación / Edafología</option>
           <option>Fotografía y Video Aéreo</option>
+          <option>Casa en Venta</option>
+          <option>Promocionar algún inmueble</option> <!-- Nueva opción añadida -->
           <option>Otro</option>
         </select>
 
@@ -137,6 +169,45 @@
         main.classList.add('show');
       }, 1000);
     }, 3500);
+
+    // Función para scroll suave y selección en formulario
+    function irAContactoConServicio(servicio) {
+      // Selecciona el valor en el select
+      const selectServicio = document.getElementById('servicio');
+      // Buscar la opción que contenga el texto servicio (ignorar mayúsculas)
+      let opcionEncontrada = false;
+      for (let option of selectServicio.options) {
+        if (option.text.toLowerCase() === servicio.toLowerCase()) {
+          selectServicio.value = option.value || option.text;
+          opcionEncontrada = true;
+          break;
+        }
+      }
+      if (!opcionEncontrada) {
+        selectServicio.value = "Otro";
+      }
+      // Llevar al formulario con scroll suave
+      document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+      // Poner foco en el nombre
+      document.getElementById('nombre').focus();
+    }
+
+    // Evento para cards en sección servicios
+    document.querySelectorAll('#servicios .service').forEach(card => {
+      card.addEventListener('click', () => {
+        const servicio = card.getAttribute('data-servicio');
+        irAContactoConServicio(servicio);
+      });
+    });
+
+    // Evento para botones "Más información" en portafolio
+    document.querySelectorAll('.btn-info').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // evitar que se active el evento del div padre
+        const servicio = btn.getAttribute('data-servicio');
+        irAContactoConServicio(servicio);
+      });
+    });
   </script>
 </body>
 </html>
