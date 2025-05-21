@@ -1,0 +1,326 @@
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background-color: #ffffff;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      border-bottom: 1px solid #ccc;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #1e824c;
+      font-weight: normal;
+    }
+
+    nav a {
+      margin-left: 25px;
+      color: #2c3e50;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #1e824c;
+    }
+
+    .intro-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .intro-container h1 {
+      font-size: 60px;
+      color: #1e824c;
+      animation: slideDown 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .intro-container p {
+      font-size: 22px;
+      color: #7f8c8d;
+      margin-top: 10px;
+      animation: fadeInText 2.5s ease-in forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; }
+      70% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .intro-container.up {
+      animation: moveUp 1s ease-in-out forwards;
+    }
+
+    @keyframes moveUp {
+      to {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+    }
+
+    .main-content {
+      display: none;
+      padding: 120px 40px 60px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .main-content.show {
+      display: block;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #1e824c;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p.description {
+      font-size: 16px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .services, .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .service, .project {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .project img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    form {
+      background-color: #fefefe;
+      border: 1px solid #ccc;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+form button {
+  background-color: #1e824c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+
+  display: block;      /* hace que el botón sea bloque */
+  margin: 0 auto;      /* centra el bloque horizontalmente */
+  width: fit-content;  /* ajusta ancho al contenido */
+  min-width: 150px;    /* opcional: ancho mínimo para que no sea muy pequeño */
+}
+
+form button:hover {
+  background-color: #166a3c;
+}
+
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    footer {
+      background-color: white;
+      border-top: 1px solid #ccc;
+      color: #2c3e50;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #2c3e50;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+       color: #243444;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Media query para dispositivos pequeños y medianos */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  nav a {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+
+  .intro-container h1 {
+    font-size: 40px;
+  }
+
+  .intro-container p {
+    font-size: 18px;
+  }
+
+  .main-content {
+    padding: 100px 20px 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p.description {
+    font-size: 14px;
+  }
+
+  .services, .portfolio {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  /* Centrar el botón de contacto dentro del form */
+  form button {
+    display: block;
+    margin: 0 auto;
+    width: auto; /* para que no sea 100% ancho */
+    min-width: 150px; /* ancho mínimo agradable */
+  }
+}
+
+/* Media query para pantallas extra pequeñas (móviles muy pequeños) */
+@media (max-width: 400px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  nav a {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  .intro-container h1 {
+    font-size: 32px;
+  }
+
+  .intro-container p {
+    font-size: 16px;
+  }
+
+  .main-content {
+    padding: 80px 15px 30px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p.description {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sustento Consultores</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Sustento Consultores</h1>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#videos">Videos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="intro-container" id="intro">
+    <h1>Sustento</h1>
+    <p>consultores</p>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <section id="servicios">
+      <h2>Servicios Profesionales</h2>
+      <p class="description">Ofrecemos soluciones técnicas integrales para proyectos sustentables y urbanos.</p>
+      <div class="services">
+        <div class="service">
+          <h3>Impacto Ambiental</h3>
+          <p>Estudios y evaluaciones ambientales para cumplimiento normativo.</p>
+        </div>
+        <div class="service">
+          <h3>Urbano y Movilidad</h3>
+          <p>Planeación y diseño para desarrollo urbano y sistemas de movilidad eficientes.</p>
+        </div>
+        <div class="service">
+          <h3>Topográficos y Estructurales</h3>
+          <p>Levantamientos topográficos y análisis estructurales confiables.</p>
+        </div>
+        <div class="service">
+          <h3>Edafología y Valuación</h3>
+          <p>Estudios de suelo y valuación catastral técnica y objetiva.</p>
+        </div>
+        <div class="service">
+          <h3>Fotografía Aérea</h3>
+          <p>Imágenes y videos profesionales con drones para proyectos y promoción.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="portafolio">
+      <h2>Portafolio</h2>
+      <div class="portfolio">
+        <div class="project">
+          <img src="https://via.placeholder.com/400x250?text=Proyecto+1" alt="Proyecto 1">
+          <h3>Impacto Ambiental – Parque Solar</h3>
+          <p>Evaluación integral de impacto para planta de energía renovable.</p>
+        </div>
+        <div class="project">
+          <img src="https://via.placeholder.com/400x250?text=Casa+en+Venta" alt="Casa">
+          <h3>Casa en Venta – Zona Residencial</h3>
+          <p>Propiedad lista para habitar con diseño ecológico y moderno.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <h2>Videos</h2>
+      <p class="description">Conoce más sobre nuestros servicios a través de videos demostrativos.</p>
+      <div class="services">
+        <div class="service">
+          <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1" frameborder="0" allowfullscreen></iframe>
+          <h3>Presentación de Servicios</h3>
+        </div>
+        <div class="service">
+          <iframe width="100%" height="200" src="https://www.youtube.com/embed/oHg5SJYRHA0" title="Video 2" frameborder="0" allowfullscreen></iframe>
+          <h3>Proyectos Recientes</h3>
+        </div>
+        <div class="service">
+          <iframe width="100%" height="200" src="https://www.youtube.com/embed/3GwjfUFyY6M" title="Video 3" frameborder="0" allowfullscreen></iframe>
+          <h3>Testimonios de Clientes</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <form>
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="empresa">Empresa / Institución</label>
+        <input type="text" id="empresa" name="empresa">
+
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" required>
+
+        <label for="servicio">Servicio requerido</label>
+        <select id="servicio" name="servicio" required>
+          <option value="">Seleccione una opción</option>
+          <option>Estudio de Impacto Ambiental</option>
+          <option>Planeación Urbana y Movilidad</option>
+          <option>Topografía y Diseño Estructural</option>
+          <option>Valuación / Edafología</option>
+          <option>Fotografía y Video Aéreo</option>
+          <option>Otro</option>
+        </select>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+  </div>
+
+  <a href="https://wa.me/+525542223463" class="whatsapp-float" target="_blank" title="WhatsApp">💬</a>
+
+  <footer>
+    sustentoconsultores@gmail.com | +52 55 4222 3463<br>
+    <a href="#servicios">Servicios</a> | <a href="#portafolio">Portafolio</a> | <a href="#videos">Videos</a> | <a href="#contacto">Contacto</a>
+  </footer>
+
+  <script>
+    setTimeout(() => {
+      const intro = document.getElementById('intro');
+      const main = document.getElementById('mainContent');
+      intro.classList.add('up');
+      setTimeout(() => {
+        intro.style.display = 'none';
+        main.classList.add('show');
+      }, 1000);
+    }, 3500);
+  </script>
+</body>
+</html>
